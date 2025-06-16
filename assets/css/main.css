@@ -1,1 +1,14 @@
 @import 'tailwindcss';
+@import "./fonts.css";
+
+@theme {
+    --font-Exo2-Black: "Exo2-Black", sans-serif;
+    --font-Exo2-Light: "Exo2-Light", sans-serif;
+    --font-Exo2-Medium: "Exo2-Medium", sans-serif;
+    --font-Exo2-Bold: "Exo2-Bold", sans-serif;
+    --font-Exo2-Regular: "Exo2-Regular", sans-serif;
+    --font-Exo2-Thin: "Exo2-Thin", sans-serif;
+    --font-Exo2-SemiBold: "Exo2-SemiBold", sans-serif;
+    --font-Exo2-ExtraLight: "Exo2-ExtraLight", sans-serif;
+    --font-Exo2-ExtraBold: "Exo2-ExtraBold", sans-serif;
+}
