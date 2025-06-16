@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const amir = 'this is really good'
+const amir = 'this is really good';
 </script>
 
 <template>
