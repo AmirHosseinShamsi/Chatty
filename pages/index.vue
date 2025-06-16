@@ -8,7 +8,7 @@
             <h1 class="font-bold text-white capitalize font-Exo2-SemiBold">
                 platform name
             </h1>
-            <p class="text-white text-center">
+            <p class="text-white text-center font-Exo2-Light text-sm">
                 Lorem ipsum odor amet, consectetuer adipiscing
             </p>
         </div>

@@ -12,3 +12,7 @@
     --font-Exo2-ExtraLight: "Exo2-ExtraLight", sans-serif;
     --font-Exo2-ExtraBold: "Exo2-ExtraBold", sans-serif;
 }
+
+body {
+    font-family: var(--font-Exo2-Medium), sans-serif;
+}

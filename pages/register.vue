@@ -6,9 +6,6 @@ definePageMeta({
 </script>
 
 <template>
-<h1 class="text-white">this is register page</h1>
+<div class="">
+</div>
 </template>
-
-<style scoped>
-
-</style>

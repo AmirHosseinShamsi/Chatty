@@ -16,7 +16,7 @@ const router = useRouter();
             </div>
             <div class="flex-1 flex items-center justify-center space-x-2">
                 <img src="~/assets/images/Logo.svg" class="size-6" alt="logo" />
-                <p class="text-white capitalize">{{ meta.title }}</p>
+                <p class="text-white capitalize text-sm">{{ meta.title }}</p>
             </div>
             <div class="flex-1"></div>
         </div>
