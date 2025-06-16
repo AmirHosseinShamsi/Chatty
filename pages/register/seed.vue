@@ -1,15 +1,17 @@
 <script setup lang="ts">
 useHead({
-    title: 'Login',
+  title: 'Seed',
 })
 definePageMeta({
     layout: 'auth',
-    title: 'Login',
+    title: 'Register/Seed',
 });
 </script>
 
 <template>
-    <h1 class="text-white">this is login page</h1>
+  <h1 class="text-white">this is seed</h1>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

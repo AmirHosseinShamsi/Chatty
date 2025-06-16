@@ -7,4 +7,15 @@ export default defineNuxtConfig({
     vite: {
         plugins: [tailwindcss()],
     },
+    app: {
+        head: {
+            title: 'Application',
+            htmlAttrs: {
+                lang: 'en',
+            },
+            link: [
+                { rel: 'icon', type: 'image/x-icon', href: './favicon.ico' },
+            ]
+        }
+    }
 });
