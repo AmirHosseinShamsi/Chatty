@@ -37,7 +37,7 @@ const inputsData: InputsData[] = [
 </script>
 
 <template>
-    <div class="px-5 flex flex-col justify-between h-full">
+    <div class="px-5 flex flex-col justify-around h-[calc(100vh-80px)]">
         <div class="space-y-3">
             <!--profile picture-->
             <div class="flex flex-col items-center">
@@ -73,14 +73,12 @@ const inputsData: InputsData[] = [
             </div>
             <!-- inputs -->
             <div class="flex flex-col gap-y-1" v-for="item in inputsData">
-                <p class="text-white text-sm capitalize">{{ item.title }}</p>
-                <input
-                    :type="item.type"
+                <Input
                     :name="item.name"
-                    autocomplete="off"
-                    class="py-2 px-3 rounded-lg bg-gray-900 placeholder:text-gray-500 placeholder:text-xs placeholder:capitalize focus:outline-0 text-white text-xs"
                     :placeholder="item.placeholder"
-                />
+                    :type="item.type"
+                    :title="item.title"
+                ></Input>
             </div>
         </div>
         <Button title="continue"></Button>
