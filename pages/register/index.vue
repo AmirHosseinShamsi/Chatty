@@ -87,6 +87,8 @@ const inputsData: InputsData[] = [
                 ></Input>
             </div>
         </div>
-        <Button title="continue"></Button>
+        <NuxtLink to="/register/seed">
+            <Button title="continue"></Button>
+        </NuxtLink>
     </div>
 </template>

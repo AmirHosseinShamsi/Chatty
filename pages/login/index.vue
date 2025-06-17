@@ -12,4 +12,3 @@ definePageMeta({
     <h1 class="text-white">this is login page</h1>
 </template>
 
-<style scoped></style>

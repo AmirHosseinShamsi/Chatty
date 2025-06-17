@@ -14,6 +14,7 @@ const seedItems = Array.from({ length: 12 });
     <div
         class="px-8 py-10 *:w-full flex flex-col items-center justify-between h-[calc(100vh-80px)]"
     >
+        <!--seeds section-->
         <div class="space-y-4">
             <div class="rounded-lg bg-gray-900 p-2">
                 <p class="font-Exo2-Regular text-gray-300 text-xs text-justify">
@@ -38,6 +39,7 @@ const seedItems = Array.from({ length: 12 });
                 <Button title="regenerate seeds"></Button>
             </div>
         </div>
+
         <!--custom checkbox and button-->
         <div class="space-y-3">
             <div class="flex items-center gap-x-2 cursor-pointer relative">
@@ -62,7 +64,7 @@ const seedItems = Array.from({ length: 12 });
                     />
                 </span>
             </div>
-            <Button title="continue"></Button>
+            <Button title="register"></Button>
         </div>
     </div>
 </template>
