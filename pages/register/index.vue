@@ -37,7 +37,9 @@ const inputsData: InputsData[] = [
 </script>
 
 <template>
-    <div class="px-5 flex flex-col justify-between pt-6 pb-10 h-[calc(100vh-80px)]">
+    <div
+        class="px-5 flex flex-col justify-between pt-6 pb-10 h-[calc(100vh-80px)]"
+    >
         <div class="space-y-3">
             <!--profile picture-->
             <div class="flex flex-col items-center">
@@ -72,7 +74,10 @@ const inputsData: InputsData[] = [
                 </div>
             </div>
             <!-- inputs -->
-            <div class="flex flex-col gap-y-1" v-for="(item , index) in inputsData">
+            <div
+                class="flex flex-col gap-y-1"
+                v-for="(item, index) in inputsData"
+            >
                 <Input
                     :name="item.name"
                     :placeholder="item.placeholder"

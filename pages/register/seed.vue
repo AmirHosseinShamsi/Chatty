@@ -22,6 +22,8 @@ const seedItems = Array.from({ length: 12 });
         </div>
         <div>
             <h1 class="text-xs text-gray-300 capitalize">your seeds</h1>
+
+            <!--seed items-->
             <div class="grid grid-cols-3 gap-3">
                 <div
                     class="rounded-lg bg-gray-900 text-center py-2 px-4"
@@ -34,6 +36,31 @@ const seedItems = Array.from({ length: 12 });
             <div class="w-full max-w-32 mx-auto">
                 <Button title="regenerate seeds"></Button>
             </div>
+
+            <!--custom checkbox and button-->
+            <div class="flex items-center gap-x-2 cursor-pointer relative">
+                <input
+                    type="checkbox"
+                    checked
+                    class="peer size-5 cursor-pointer transition-all appearance-none rounded bg-gray-800"
+                    id="check"
+                />
+                <label
+                    for="agree"
+                    class="first-letter:capitalize text-xs text-gray-300 font-Exo2-Regular"
+                    >I wrote down my seeds to safe place.</label
+                >
+                <span
+                    class="absolute text-green-400 opacity-0 peer-checked:opacity-100 top-1/2 left-2.5 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                >
+                    <img
+                        src="~/assets/images/CheckIcon.svg"
+                        class="size-3.5"
+                        alt="check-icon"
+                    />
+                </span>
+            </div>
+            <Button title="continue"></Button>
         </div>
     </div>
 </template>
