@@ -31,5 +31,6 @@ const seedItems = Array.from({ length: 12 });
                 ></Input>
             </div>
         </div>
+        <Button title="Login"></Button>
     </div>
 </template>
