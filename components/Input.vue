@@ -1,8 +1,8 @@
 <script setup lang="ts">
 interface Props {
-    title: string;
+    title?: string;
     type: string;
-    name: string;
+    name?: string;
     placeholder: string;
 }
 
