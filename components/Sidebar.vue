@@ -1,15 +1,15 @@
 <script setup lang="ts">
-const { isOpen, setIsOpen } = defineProps<{
+const { isOpen } = defineProps<{
     isOpen: boolean;
-    setIsOpen: () => void;
 }>();
+const emit = defineEmits(['close']);
 </script>
 
 <template>
     <!-- Overlay -->
     <div
-        v-if="isOpen"
-        @click="setIsOpen"
+        v-show="isOpen"
+        @click="emit('close')"
         class="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
     ></div>
 
@@ -20,7 +20,7 @@ const { isOpen, setIsOpen } = defineProps<{
     >
         <div class="flex justify-end p-4">
             <button
-                @click="setIsOpen"
+                @click="emit('close')"
                 class="text-gray-600 hover:text-black"
             >
                 ✕

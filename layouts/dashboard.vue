@@ -3,10 +3,6 @@ import DefaultLayout from './default.vue';
 import { Bars3Icon, MagnifyingGlassIcon } from '@heroicons/vue/24/solid';
 
 const isOpen = ref<boolean>(false);
-
-const setIsOpen = (): void => {
-    isOpen.value = !isOpen.value;
-};
 </script>
 
 <template>
@@ -14,7 +10,7 @@ const setIsOpen = (): void => {
         <div
             class="w-full h-20 flex items-center justify-between bg-gray-900 px-4"
         >
-            <button @click="setIsOpen">
+            <button @click="isOpen = !isOpen">
                 <Bars3Icon class="size-5 text-white" />
             </button>
             <div class="flex items-center justify-center space-x-2">
@@ -23,7 +19,7 @@ const setIsOpen = (): void => {
             </div>
             <MagnifyingGlassIcon class="size-5 text-white" />
         </div>
-        <Sidebar :is-open="isOpen" :set-is-open="setIsOpen"></Sidebar>
+        <Sidebar :is-open="isOpen" @close="isOpen = false"></Sidebar>
         <slot />
     </DefaultLayout>
 </template>
