@@ -72,12 +72,13 @@ const inputsData: InputsData[] = [
                 </div>
             </div>
             <!-- inputs -->
-            <div class="flex flex-col gap-y-1" v-for="item in inputsData">
+            <div class="flex flex-col gap-y-1" v-for="(item , index) in inputsData">
                 <Input
                     :name="item.name"
                     :placeholder="item.placeholder"
                     :type="item.type"
                     :title="item.title"
+                    :key="index"
                 ></Input>
             </div>
         </div>
