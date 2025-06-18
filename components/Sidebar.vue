@@ -6,6 +6,7 @@ import {
     InformationCircleIcon,
     ArrowRightStartOnRectangleIcon,
 } from '@heroicons/vue/24/outline';
+import type { FunctionalComponent } from 'vue';
 //props
 const { isOpen } = defineProps<{
     isOpen: boolean;
@@ -13,6 +14,19 @@ const { isOpen } = defineProps<{
 
 //emit
 const emit = defineEmits(['close']);
+
+//data
+interface SidebarItems {
+    icon: FunctionalComponent;
+    text: string;
+}
+
+const sidebarItems: SidebarItems[] = [
+    { icon: UserCircleIcon, text: 'My Account' },
+    { icon: WalletIcon, text: 'My Wallet' },
+    { icon: InformationCircleIcon, text: 'About Platform' },
+    { icon: ArrowRightStartOnRectangleIcon, text: 'Log out' },
+];
 </script>
 
 <template>
@@ -56,49 +70,27 @@ const emit = defineEmits(['close']);
             class="flex flex-col justify-between bg-gray-900 h-[calc(100dvh-158px)] py-6 px-4"
         >
             <nav>
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-x-4">
-                        <UserCircleIcon
+                <ul class="flex flex-col gap-y-3">
+                    <li
+                        class="flex items-center gap-x-4"
+                        v-for="(item, index) in sidebarItems"
+                        :key="index"
+                    >
+                        <component
+                            :is="item.icon"
                             class="size-6 text-gray-400"
-                        ></UserCircleIcon>
+                        />
                         <p
                             class="text-gray-400 text-sm font-Exo2-Regular capitalize"
                         >
-                            My Account
-                        </p>
-                    </li>
-                    <li class="flex items-center gap-x-4">
-                        <WalletIcon class="size-6 text-gray-400"></WalletIcon>
-                        <p
-                            class="text-gray-400 text-sm font-Exo2-Regular capitalize"
-                        >
-                            My Wallet
-                        </p>
-                    </li>
-                    <li class="flex items-center gap-x-4">
-                        <InformationCircleIcon
-                            class="size-6 text-gray-400"
-                        ></InformationCircleIcon>
-                        <p
-                            class="text-gray-400 text-sm font-Exo2-Regular capitalize"
-                        >
-                            About Platform
-                        </p>
-                    </li>
-                    <li class="flex items-center gap-x-4">
-                        <ArrowRightStartOnRectangleIcon
-                            class="size-6 text-gray-400"
-                        ></ArrowRightStartOnRectangleIcon>
-                        <p
-                            class="text-gray-400 text-sm font-Exo2-Regular capitalize"
-                        >
-                            Log out
+                            {{ item.text }}
                         </p>
                     </li>
                 </ul>
             </nav>
-            <p class="text-gray-500 font-Exo2-Light text-xs text-center">2024-01-01
-                v1.0.0</p>
+            <p class="text-gray-500 font-Exo2-Light text-xs text-center">
+                2024-01-01 v1.0.0
+            </p>
         </div>
     </div>
 </template>
