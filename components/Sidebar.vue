@@ -27,6 +27,8 @@ const sidebarItems: SidebarItems[] = [
     { icon: InformationCircleIcon, text: 'About Platform' },
     { icon: ArrowRightStartOnRectangleIcon, text: 'Log out' },
 ];
+
+const isProfilePhoto = ref<boolean>(true);
 </script>
 
 <template>
@@ -45,11 +47,20 @@ const sidebarItems: SidebarItems[] = [
         <div class="flex justify-between bg-gray-800 p-4">
             <div class="flex flex-col">
                 <NuxtLink to="/dashboard/profile">
-                    <img
-                        src="#"
-                        alt="profile-photo"
-                        class="bg-gray-500 rounded-full size-20"
-                    />
+                    <div class="size-20 rounded-full" v-if="isProfilePhoto">
+                        <img
+                            src="~/assets/images/profile-photo.jpg"
+                            alt="profile-photo"
+                            class="object-cover size-full rounded-full"
+                        />
+                    </div>
+                    <div class="bg-gray-600 rounded-full size-20 flex justify-center items-center" v-else>
+                        <img
+                            src="~/assets/images/ProfilePreview.svg"
+                            class="size-10"
+                            alt="profile-photo"
+                        />
+                    </div>
                 </NuxtLink>
                 <div class="mt-3 space-y-0.5">
                     <p
