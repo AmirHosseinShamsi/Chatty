@@ -8,7 +8,7 @@ import {
 } from '@heroicons/vue/24/outline';
 import type { FunctionalComponent } from 'vue';
 //props
-const { isOpen } = defineProps<{
+const props = defineProps<{
     isOpen: boolean;
 }>();
 
@@ -34,7 +34,7 @@ const isProfilePhoto = ref<boolean>(true);
 <template>
     <!-- Overlay -->
     <div
-        v-show="isOpen"
+        v-show="props.isOpen"
         @click="emit('close')"
         class="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
     ></div>
@@ -42,7 +42,7 @@ const isProfilePhoto = ref<boolean>(true);
     <!-- Sidebar -->
     <div
         class="fixed top-0 left-0 size-full max-w-80 z-50 transform transition-transform duration-300"
-        :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
+        :class="props.isOpen ? 'translate-x-0' : '-translate-x-full'"
     >
         <div class="flex justify-between bg-gray-800 p-4">
             <div class="flex flex-col">
@@ -54,7 +54,10 @@ const isProfilePhoto = ref<boolean>(true);
                             class="object-cover size-full rounded-full"
                         />
                     </div>
-                    <div class="bg-gray-600 rounded-full size-20 flex justify-center items-center" v-else>
+                    <div
+                        class="bg-gray-600 rounded-full size-20 flex justify-center items-center"
+                        v-else
+                    >
                         <img
                             src="~/assets/images/ProfilePreview.svg"
                             class="size-10"

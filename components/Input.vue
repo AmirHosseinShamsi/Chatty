@@ -6,18 +6,18 @@ interface Props {
     placeholder: string;
 }
 
-const { title, type, name, placeholder } = defineProps<Props>();
+const props = defineProps<Props>();
 </script>
 
 <template>
     <div class="flex flex-col gap-y-1">
-        <p class="text-white text-sm capitalize">{{ title }}</p>
+        <p class="text-white text-sm capitalize">{{ props.title }}</p>
         <input
-            :type="type"
-            :name="name"
+            :type="props.type"
+            :name="props.name"
             autocomplete="off"
             class="py-2 px-3 rounded-lg bg-gray-900 placeholder:text-gray-500 placeholder:text-xs placeholder:capitalize focus:outline-0 text-white text-xs"
-            :placeholder="placeholder"
+            :placeholder="props.placeholder"
         />
     </div>
 </template>
