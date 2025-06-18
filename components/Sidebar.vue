@@ -44,11 +44,13 @@ const sidebarItems: SidebarItems[] = [
     >
         <div class="flex justify-between bg-gray-800 p-4">
             <div class="flex flex-col">
-                <img
-                    src="#"
-                    alt="profile-photo"
-                    class="bg-gray-500 rounded-full size-20"
-                />
+                <NuxtLink to="/dashboard/profile">
+                    <img
+                        src="#"
+                        alt="profile-photo"
+                        class="bg-gray-500 rounded-full size-20"
+                    />
+                </NuxtLink>
                 <div class="mt-3 space-y-0.5">
                     <p
                         class="font-Exo2-SemiBold text-xs text-gray-200 capitalize"
