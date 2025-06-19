@@ -7,39 +7,20 @@ definePageMeta({
     title: 'Register',
 });
 
-interface InputsData {
-    title: string;
-    name: string;
-    placeholder: string;
-    type: string;
-}
+const inputData = reactive({
+    fullName: '',
+    username: '',
+    email: '',
+    password: '',
+});
 
-const inputsData: InputsData[] = [
-    {
-        title: 'Username',
-        name: 'username',
-        placeholder: 'Enter your username',
-        type: 'text',
-    },
-    {
-        title: 'Nickname',
-        name: 'nickname',
-        placeholder: 'Enter your nickname',
-        type: 'text',
-    },
-    {
-        title: 'password',
-        name: 'password',
-        placeholder: 'Enter your password',
-        type: 'password',
-    },
-];
+const onSubmit = async () => {
+    console.log('submitted');
+};
 </script>
 
 <template>
-    <div
-        class="px-5 flex flex-col justify-between pt-6 pb-10 h-[calc(100vh-80px)]"
-    >
+    <div class="px-5 pt-6 pb-10 h-[calc(100vh-80px)]">
         <div class="space-y-3">
             <!--profile picture-->
             <div class="flex flex-col items-center">
@@ -74,20 +55,40 @@ const inputsData: InputsData[] = [
                 </div>
             </div>
             <!-- inputs -->
-            <form action="">
-                <div
-                    class="flex flex-col gap-y-1"
-                    v-for="(item, index) in inputsData"
-                >
-                    <Input
-                        :name="item.name"
-                        :placeholder="item.placeholder"
-                        :type="item.type"
-                        :title="item.title"
-                        :key="index"
-                    ></Input>
-                </div>
-                <Button title="continue"></Button>
+            <form
+                action="#"
+                class="space-y-3 flex flex-col flex-1"
+                @submit.prevent="onSubmit"
+            >
+                <Input
+                    name="fullName"
+                    placeholder="Enter your fullName"
+                    type="text"
+                    title="Enter your fullName"
+                    v-model:input-value="inputData.fullName"
+                ></Input>
+                <Input
+                    name="username"
+                    placeholder="Enter your username"
+                    type="text"
+                    title="Enter your username"
+                    v-model:input-value="inputData.username"
+                ></Input>
+                <Input
+                    name="email"
+                    placeholder="Enter your email"
+                    type="email"
+                    title="Enter your email"
+                    v-model:input-value="inputData.email"
+                ></Input>
+                <Input
+                    name="password"
+                    placeholder="Enter your password"
+                    type="password"
+                    title="Enter your password"
+                    v-model:input-value="inputData.password"
+                ></Input>
+                <Button title="continue" class="mt-10"></Button>
             </form>
         </div>
     </div>
