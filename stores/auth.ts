@@ -6,7 +6,6 @@ export const useAuthStore = defineStore('auth', () => {
     const isAuthenticated = computed(() => token.value);
 
     async function login(email: string, password: string) {
-        console.log({email, password});
         interface Response {
             id: number;
             email: string;
@@ -17,8 +16,8 @@ export const useAuthStore = defineStore('auth', () => {
             method: 'POST',
             body: { email, password },
         });
-        // token.value = res.token;
-        // localStorage.setItem('token', res.token);
+        token.value = res.token;
+        return res;
     }
 
     return { isAuthenticated, login };

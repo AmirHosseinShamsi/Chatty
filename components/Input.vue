@@ -20,7 +20,6 @@ const inputValue = defineModel('inputValue');
             class="py-2 px-3 rounded-lg bg-gray-900 placeholder:text-gray-500 placeholder:text-xs placeholder:capitalize focus:outline-0 text-white text-xs"
             :placeholder="props.placeholder"
             v-model.lazy="inputValue"
-            required
         />
     </div>
 </template>
