@@ -12,22 +12,13 @@ definePageMeta({
 const store = useAuthStore();
 const inputUsername = ref<string>('');
 const inputPassword = ref<string>('');
-const loginResponse = ref<LoginResponse | null>(null);
+const loginResponse = ref();
 
 const onSubmit = async () => {
     loginResponse.value = await store.login(
         inputUsername.value,
         inputPassword.value
     );
-
-    if (!loginResponse.value.error) {
-        await navigateTo({
-            name: 'dashboard-id',
-            params: {
-                id: loginResponse.value.id,
-            },
-        });
-    }
 };
 </script>
 

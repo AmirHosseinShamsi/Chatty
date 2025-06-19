@@ -18,5 +18,14 @@ export default defineEventHandler(async (event) => {
 
     const token: string = Math.random().toString(36).substring(2);
     const userId: number = user.id;
+
+    setCookie(event, 'token', token, {
+        httpOnly: false,
+        secure: false,
+        sameSite: 'strict',
+        path: '/',
+        maxAge: 60 * 60 * 24, // 1 day
+    })
+
     return { email, token, id: userId };
 });
