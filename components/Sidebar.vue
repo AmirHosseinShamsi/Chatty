@@ -7,11 +7,12 @@ import {
     ArrowRightStartOnRectangleIcon,
 } from '@heroicons/vue/24/outline';
 import type { FunctionalComponent } from 'vue';
+import { useAuthStore } from '~/stores/auth';
 //props
 const props = defineProps<{
     isOpen: boolean;
 }>();
-
+const store = useAuthStore();
 //emit
 const emit = defineEmits(['close']);
 
@@ -91,6 +92,7 @@ const isProfilePhoto = ref<boolean>(true);
                         class="flex items-center gap-x-4"
                         v-for="(item, index) in sidebarItems"
                         :key="index"
+                        @click="index === sidebarItems.length - 1 ? store.logout() : null"
                     >
                         <component
                             :is="item.icon"
