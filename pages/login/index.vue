@@ -9,17 +9,10 @@ definePageMeta({
     title: 'Login',
 });
 
-interface Response {
-    id: number;
-    email: string;
-    token: string;
-    error: string;
-}
-
 const store = useAuthStore();
 const inputUsername = ref<string>('');
 const inputPassword = ref<string>('');
-const loginResponse = ref<Response | null>(null);
+const loginResponse = ref<LoginResponse | null>(null);
 
 const onSubmit = async () => {
     loginResponse.value = await store.login(
@@ -28,7 +21,6 @@ const onSubmit = async () => {
     );
 
     if (!loginResponse.value.error) {
-        console.log('can login');
         await navigateTo({
             name: 'dashboard-id',
             params: {

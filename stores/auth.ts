@@ -6,13 +6,7 @@ export const useAuthStore = defineStore('auth', () => {
     const isAuthenticated = computed(() => token.value);
 
     async function login(email: string, password: string) {
-        interface Response {
-            id: number;
-            email: string;
-            token: string;
-            error: string;
-        }
-        const res = await $fetch<Response>('/api/auth/login', {
+        const res = await $fetch<LoginResponse>('/api/auth/login', {
             method: 'POST',
             body: { email, password },
         });

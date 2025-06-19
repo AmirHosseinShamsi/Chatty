@@ -19,4 +19,10 @@ export default defineNuxtConfig({
         },
     },
     modules: ['@pinia/nuxt'],
+    typescript: {
+        strict: true,
+    },
+    imports: {
+        dirs: ['types/**'],
+    },
 });
