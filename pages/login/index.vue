@@ -24,7 +24,7 @@ const onSubmit = async () => {
         await navigateTo({
             name: 'dashboard-id',
             params: {
-                id: 1,
+                id: loginResponse.value.id,
             },
         });
     }
