@@ -8,7 +8,10 @@ export default defineEventHandler(async (event) => {
 
     // Check if user already exists
     if (users.find((u) => u.username === username)) {
-        return { error: 'User already exists' };
+        throw createError({
+            status: 401,
+            message: 'user already exists',
+        })
     }
 
     // Get the max ID from existing users, default to 0

@@ -29,16 +29,22 @@ export const useAuthStore = defineStore('auth', () => {
         username: string;
         password: string;
     }) {
-        const { id } = await $fetch<{ id: number }>('/api/auth/register', {
-            method: 'POST',
-            body: { fullName, username, password },
-        });
-        return navigateTo({
-            name: 'dashboard-id',
-            params: {
-                id: id,
-            },
-        });
+        try {
+            const { id } = await $fetch<{ id: number }>('/api/auth/register', {
+                method: 'POST',
+                body: { fullName, username, password },
+            });
+            return navigateTo({
+                name: 'dashboard-id',
+                params: {
+                    id: id,
+                },
+            });
+        } catch (error: any) {
+            const message = error?.data?.message || 'Something went wrong';
+            console.log(message);
+            return message;
+        }
     }
 
     async function logout() {

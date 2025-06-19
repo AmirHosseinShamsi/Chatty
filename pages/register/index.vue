@@ -9,6 +9,7 @@ definePageMeta({
     title: 'Register',
 });
 const store = useAuthStore();
+const errorResponse = ref<string | null>(null);
 const inputData = reactive({
     fullName: '',
     username: '',
@@ -16,7 +17,7 @@ const inputData = reactive({
 });
 
 const onSubmit = async () => {
-    await store.register(inputData);
+    errorResponse.value = await store.register(inputData);
 };
 </script>
 
@@ -82,6 +83,12 @@ const onSubmit = async () => {
                     title="Enter your password"
                     v-model:input-value="inputData.password"
                 ></Input>
+                <p
+                    class="font-Exo2-SemiBold text-xs text-red-600"
+                    v-show="errorResponse"
+                >
+                    {{ errorResponse }}
+                </p>
                 <Button title="continue" class="mt-10"></Button>
             </form>
         </div>
