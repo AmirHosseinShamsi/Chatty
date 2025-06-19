@@ -2,12 +2,12 @@ import { readBody } from 'h3';
 import { readUsers, writeUsers } from '../../utils/users';
 
 export default defineEventHandler(async (event) => {
-    const { fullName, username, email, password } =
+    const { fullName, username, password } =
         await readBody(event);
     const users = await readUsers();
 
     // Check if user already exists
-    if (users.find((u) => u.email === email)) {
+    if (users.find((u) => u.username === username)) {
         return { error: 'User already exists' };
     }
 
@@ -20,7 +20,6 @@ export default defineEventHandler(async (event) => {
         id: lastId + 1,
         fullName,
         username,
-        email,
         password,
     };
 
@@ -28,5 +27,12 @@ export default defineEventHandler(async (event) => {
     await writeUsers(users);
 
     const token = Math.random().toString(36).substring(2);
-    return { id: newUser.id, email: newUser.email, token };
+    setCookie(event, 'token', token, {
+        httpOnly: false,
+        secure: false,
+        sameSite: 'strict',
+        path: '/',
+        maxAge: 60 * 60 * 24, // 1 day
+    });
+    return { id: newUser.id };
 });

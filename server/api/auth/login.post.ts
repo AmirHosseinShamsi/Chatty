@@ -14,7 +14,10 @@ export default defineEventHandler(async (event) => {
     const user: UserInfo | undefined = users.find(
         (u) => u.username === username && u.password === password
     );
-    if (!user) return { error: 'Invalid credentials' };
+    if (!user) throw createError({
+        status:401,
+        message: 'invalid credentials.',
+    })
 
     const token: string = Math.random().toString(36).substring(2);
     const userId: number = user.id;
@@ -27,5 +30,5 @@ export default defineEventHandler(async (event) => {
         maxAge: 60 * 60 * 24, // 1 day
     });
 
-    return { username, token, id: userId };
+    return { id: userId };
 });

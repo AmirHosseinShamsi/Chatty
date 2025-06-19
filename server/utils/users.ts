@@ -9,7 +9,6 @@ export async function readUsers() {
         id: number;
         fullName: string;
         username: string;
-        email: string;
         password: string;
     }[];
 }
@@ -19,7 +18,6 @@ export async function writeUsers(
         id: number;
         fullName: string;
         username: string;
-        email: string;
         password: string;
     }[]
 ) {

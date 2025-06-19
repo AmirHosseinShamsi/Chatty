@@ -12,10 +12,10 @@ definePageMeta({
 const store = useAuthStore();
 const inputUsername = ref<string>('');
 const inputPassword = ref<string>('');
-const loginResponse = ref();
+const errorResponse = ref<string | null>(null);
 
 const onSubmit = async () => {
-    loginResponse.value = await store.login(
+    errorResponse.value = await store.login(
         inputUsername.value,
         inputPassword.value
     );
@@ -46,9 +46,9 @@ const onSubmit = async () => {
             ></Input>
             <p
                 class="font-Exo2-SemiBold text-xs text-red-600"
-                v-show="loginResponse?.error"
+                v-show="errorResponse"
             >
-                {{ loginResponse?.error }}
+                {{ errorResponse }}
             </p>
             <Button title="login" type="submit" class="mt-auto"></Button>
         </form>

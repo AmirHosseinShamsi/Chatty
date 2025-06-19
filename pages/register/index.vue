@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAuthStore } from '~/stores/auth';
+
 useHead({
     title: 'Register',
 });
@@ -6,16 +8,15 @@ definePageMeta({
     layout: 'auth',
     title: 'Register',
 });
-
+const store = useAuthStore();
 const inputData = reactive({
     fullName: '',
     username: '',
-    email: '',
     password: '',
 });
 
 const onSubmit = async () => {
-    console.log('submitted');
+    await store.register(inputData);
 };
 </script>
 
@@ -73,13 +74,6 @@ const onSubmit = async () => {
                     type="text"
                     title="Enter your username"
                     v-model:input-value="inputData.username"
-                ></Input>
-                <Input
-                    name="email"
-                    placeholder="Enter your email"
-                    type="email"
-                    title="Enter your email"
-                    v-model:input-value="inputData.email"
                 ></Input>
                 <Input
                     name="password"
