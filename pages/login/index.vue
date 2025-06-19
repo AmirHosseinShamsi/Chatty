@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAuthStore } from '~/stores/auth';
+
 useHead({
     title: 'Login',
 });
@@ -6,6 +8,16 @@ definePageMeta({
     layout: 'auth',
     title: 'Login',
 });
+
+const store = useAuthStore();
+
+const inputUsername = ref<string>('');
+const inputPassword = ref<string>('');
+
+const onSubmit = () => {
+    console.log('submit done!');
+    store.login(inputUsername.value, inputPassword.value);
+};
 </script>
 
 <template>
@@ -18,21 +30,23 @@ definePageMeta({
             >
                 enter your username and password to access your account
             </h1>
-            <Input
-                title="username"
-                type="text"
-                name="username"
-                placeholder="Enter your username"
-            ></Input>
-            <Input
-                title="cloud password"
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-            ></Input>
+            <form class="space-y-3" @submit.prevent="onSubmit">
+                <Input
+                    title="username"
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
+                    v-model:input-value="inputUsername"
+                ></Input>
+                <Input
+                    title="cloud password"
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    v-model:input-value="inputPassword"
+                ></Input>
+                <Button title="login" type="submit"></Button>
+            </form>
         </div>
-        <NuxtLink to="/login/seed">
-            <Button title="login"></Button>
-        </NuxtLink>
     </div>
 </template>

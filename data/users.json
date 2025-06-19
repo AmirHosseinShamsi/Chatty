@@ -1,11 +1,6 @@
 [
   {
     "id": 1,
-    "email": "ali",
-    "password": "Mohammadi"
-  },
-  {
-    "id": 2,
     "email": "mohammad",
     "password": "Mohammadi"
   }
