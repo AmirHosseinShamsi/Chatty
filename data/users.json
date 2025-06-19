@@ -1,7 +1,9 @@
 [
   {
     "id": 1,
-    "email": "amirhossein",
+    "fullName": "amirhossein",
+    "username": "shamsiamir2000",
+    "email": "shamsiamir2000@gmail.com",
     "password": "123456789"
   }
 ]

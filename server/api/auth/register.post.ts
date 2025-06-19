@@ -2,7 +2,8 @@ import { readBody } from 'h3';
 import { readUsers, writeUsers } from '../../utils/users';
 
 export default defineEventHandler(async (event) => {
-    const { email, password } = await readBody(event);
+    const { fullName, username, email, password } =
+        await readBody(event);
     const users = await readUsers();
 
     // Check if user already exists
@@ -17,6 +18,8 @@ export default defineEventHandler(async (event) => {
     );
     const newUser = {
         id: lastId + 1,
+        fullName,
+        username,
         email,
         password,
     };

@@ -74,21 +74,21 @@ const inputsData: InputsData[] = [
                 </div>
             </div>
             <!-- inputs -->
-            <div
-                class="flex flex-col gap-y-1"
-                v-for="(item, index) in inputsData"
-            >
-                <Input
-                    :name="item.name"
-                    :placeholder="item.placeholder"
-                    :type="item.type"
-                    :title="item.title"
-                    :key="index"
-                ></Input>
-            </div>
+            <form action="">
+                <div
+                    class="flex flex-col gap-y-1"
+                    v-for="(item, index) in inputsData"
+                >
+                    <Input
+                        :name="item.name"
+                        :placeholder="item.placeholder"
+                        :type="item.type"
+                        :title="item.title"
+                        :key="index"
+                    ></Input>
+                </div>
+                <Button title="continue"></Button>
+            </form>
         </div>
-        <NuxtLink to="/register/seed">
-            <Button title="continue"></Button>
-        </NuxtLink>
     </div>
 </template>

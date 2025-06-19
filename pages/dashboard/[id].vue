@@ -6,10 +6,12 @@ definePageMeta({
     layout: 'dashboard',
     middleware: 'auth',
 });
+
+const route = useRoute()
 </script>
 
 <template>
     <div>
-        <h1 class="text-white">this is dashboard page</h1>
+        <h1 class="text-white">{{route.params.id}}</h1>
     </div>
 </template>

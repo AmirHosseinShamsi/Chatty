@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia';
 
 export const useAuthStore = defineStore('auth', () => {
-    async function login(email: string, password: string) {
+    async function login(username: string, password: string) {
         const { id, error } = await $fetch<LoginResponse>('/api/auth/login', {
             method: 'POST',
-            body: { email, password },
+            body: { username, password },
         });
         if (error) {
             return { error };

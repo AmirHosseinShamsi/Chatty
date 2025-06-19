@@ -4,15 +4,15 @@ import { readUsers } from '../../utils/users';
 export default defineEventHandler(async (event) => {
     interface UserInfo {
         id: number;
-        email: string;
+        username: string;
         password: string;
     }
 
-    const { email, password } = await readBody(event);
+    const { username, password } = await readBody(event);
     const users: UserInfo[] = await readUsers();
 
     const user: UserInfo | undefined = users.find(
-        (u) => u.email === email && u.password === password
+        (u) => u.username === username && u.password === password
     );
     if (!user) return { error: 'Invalid credentials' };
 
@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
         sameSite: 'strict',
         path: '/',
         maxAge: 60 * 60 * 24, // 1 day
-    })
+    });
 
-    return { email, token, id: userId };
+    return { username, token, id: userId };
 });
