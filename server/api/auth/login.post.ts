@@ -14,15 +14,15 @@ export default defineEventHandler(async (event) => {
     const user: UserInfo | undefined = users.find(
         (u) => u.username === username && u.password === password
     );
-    if (!user) throw createError({
-        status:401,
-        message: 'invalid credentials.',
-    })
+    if (!user)
+        throw createError({
+            status: 401,
+            message: 'invalid credentials.',
+        });
 
-    const token: string = Math.random().toString(36).substring(2);
     const userId: number = user.id;
 
-    setCookie(event, 'token', token, {
+    setCookie(event, 'token', String(userId), {
         httpOnly: false,
         secure: false,
         sameSite: 'strict',
@@ -30,5 +30,5 @@ export default defineEventHandler(async (event) => {
         maxAge: 60 * 60 * 24, // 1 day
     });
 
-    return { id: userId };
+    return { id: user.id };
 });

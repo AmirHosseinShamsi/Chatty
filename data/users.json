@@ -1,14 +1,8 @@
 [
   {
     "id": 1,
-    "fullName": "amirhossein",
+    "fullName": "amirhossein shamsi",
     "username": "shamsi123",
-    "password": "123456789"
-  },
-  {
-    "id": 2,
-    "fullName": "amir",
-    "username": "ranjbar123",
     "password": "123456789"
   }
 ]
