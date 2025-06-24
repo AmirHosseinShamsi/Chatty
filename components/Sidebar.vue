@@ -16,13 +16,9 @@ const store = useAuthStore();
 //emit
 const emit = defineEmits(['close']);
 
-//data
-interface SidebarItems {
-    icon: FunctionalComponent;
-    text: string;
-}
 
-const sidebarItems: SidebarItems[] = [
+
+const sidebarItems: { icon: FunctionalComponent; text: string }[] = [
     { icon: UserCircleIcon, text: 'My Account' },
     { icon: WalletIcon, text: 'My Wallet' },
     { icon: InformationCircleIcon, text: 'About Platform' },
@@ -92,7 +88,11 @@ const isProfilePhoto = ref<boolean>(true);
                         class="flex items-center gap-x-4"
                         v-for="(item, index) in sidebarItems"
                         :key="index"
-                        @click="index === sidebarItems.length - 1 ? store.logout() : null"
+                        @click="
+                            index === sidebarItems.length - 1
+                                ? store.logout()
+                                : null
+                        "
                     >
                         <component
                             :is="item.icon"
