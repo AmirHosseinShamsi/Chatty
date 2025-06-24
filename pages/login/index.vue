@@ -51,6 +51,11 @@ const onSubmit = async () => {
                 {{ errorResponse }}
             </p>
             <Button title="login" type="submit" class="mt-auto"></Button>
+            <NuxtLink to="/register" class="mt-1">
+                <p class="text-gray-300 font-Exo2-Regular text-xs text-center">
+                    don't you have an account ?
+                </p>
+            </NuxtLink>
         </form>
     </div>
 </template>

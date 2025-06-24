@@ -1,6 +1,6 @@
 import type { CookieRef } from '#app';
 
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async (to) => {
     const token: CookieRef<string | null | undefined> = useCookie('token', {
         httpOnly: false,
     });
@@ -8,6 +8,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     const routeUserId: string | string[] = to.params.id;
     const tokenUserId: string | null | undefined = token.value?.toString();
     if (!tokenUserId || tokenUserId !== routeUserId) {
-        return abortNavigation('You do not access to this route');
+        return navigateTo('/login');
     }
 });
