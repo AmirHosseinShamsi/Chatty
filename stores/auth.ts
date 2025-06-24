@@ -14,9 +14,7 @@ export const useAuthStore = defineStore('auth', () => {
                 },
             });
         } catch (error: any) {
-            const message = error?.data?.message || 'Something went wrong';
-            console.log(message);
-            return message;
+            return error?.data?.message || 'Something went wrong';
         }
     }
 
@@ -41,9 +39,7 @@ export const useAuthStore = defineStore('auth', () => {
                 },
             });
         } catch (error: any) {
-            const message = error?.data?.message || 'Something went wrong';
-            console.log(message);
-            return message;
+            return error?.data?.message || 'Something went wrong';
         }
     }
 
