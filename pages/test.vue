@@ -1,13 +1,4 @@
 <script setup lang="ts">
-useHead({
-    title: 'Dashboard',
-});
-definePageMeta({
-    layout: 'dashboard',
-    middleware: 'auth',
-});
-
-const route = useRoute()
 // Active tab state
 const activeTab = ref('all');
 
@@ -24,7 +15,7 @@ const tabs = [
 
         <!-- Tab Navigation -->
         <div class="mb-6">
-            <nav class="flex space-x-2">
+            <nav class="flex space-x-8">
                 <button
                     v-for="tab in tabs"
                     :key="tab.id"
@@ -42,7 +33,7 @@ const tabs = [
         </div>
 
         <!-- Tab Content -->
-        <div class="min-h-[400px] *:text-white">
+        <div class="min-h-[400px]">
             <!-- Dashboard Tab -->
             <div v-if="activeTab === 'all'" class="space-y-6">
                 this is All chats
