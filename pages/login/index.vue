@@ -10,15 +10,14 @@ definePageMeta({
 });
 
 const store = useAuthStore();
-const inputUsername = ref<string>('');
-const inputPassword = ref<string>('');
 const errorResponse = ref<string | null>(null);
 
+const inputData = reactive({
+    username: '',
+    password: '',
+});
 const onSubmit = async () => {
-    errorResponse.value = await store.login(
-        inputUsername.value,
-        inputPassword.value
-    );
+    errorResponse.value = await store.login(inputData);
 };
 </script>
 
@@ -35,14 +34,14 @@ const onSubmit = async () => {
                 type="text"
                 name="username"
                 placeholder="Enter your username"
-                v-model:input-value="inputUsername"
+                v-model:input-value="inputData.username"
             ></Input>
             <Input
                 title="cloud password"
                 type="password"
                 name="password"
                 placeholder="Enter your password"
-                v-model:input-value="inputPassword"
+                v-model:input-value="inputData.password"
             ></Input>
             <p
                 class="font-Exo2-SemiBold text-xs text-red-600"
