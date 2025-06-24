@@ -20,10 +20,10 @@ const tabs = [
 </script>
 
 <template>
-    <div class="w-full max-w-4xl mx-auto p-6">
+    <div class="w-full max-w-4xl mx-auto">
 
         <!-- Tab Navigation -->
-        <div class="mb-6">
+        <div class="p-2">
             <nav class="flex space-x-2">
                 <button
                     v-for="tab in tabs"
@@ -45,7 +45,7 @@ const tabs = [
         <div class="min-h-[400px] *:text-white">
             <!-- Dashboard Tab -->
             <div v-if="activeTab === 'all'" class="space-y-6">
-                this is All chats
+                <ChatProfile></ChatProfile>
             </div>
 
             <!-- Users Tab -->
