@@ -72,7 +72,7 @@ const chats: Chats[] = [
     },
 ];
 
-//functions
+//computed
 const filteredChats = computed(() => {
     return activeTab.value === 'all'
         ? chats

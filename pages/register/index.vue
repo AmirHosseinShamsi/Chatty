@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useAuthStore } from '~/stores/auth';
 
-// useHead({
-//     title: 'Register',
-// });
+useHead({
+    title: 'Register',
+});
 definePageMeta({
     layout: 'auth',
     title: 'Register',
