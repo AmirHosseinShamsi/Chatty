@@ -74,9 +74,11 @@ const chats: Chats[] = [
 
 //functions
 const filteredChats = computed(() => {
-    if (activeTab.value === 'all') return chats;
-    return chats.filter((chat) => chat.type === activeTab.value);
+    return activeTab.value === 'all'
+        ? chats
+        : chats.filter((chat) => chat.type === activeTab.value);
 });
+const hasChats = computed(() => filteredChats.value.length > 0);
 </script>
 
 <template>
@@ -105,7 +107,7 @@ const filteredChats = computed(() => {
         <!-- Tab Content -->
         <div class="min-h-[400px] *:text-white">
             <!-- Dashboard Tab -->
-            <template v-if="filteredChats.length > 0">
+            <template v-if="hasChats">
                 <ChatProfile
                     v-for="chat in filteredChats"
                     :key="`chat-${chat.id}`"
