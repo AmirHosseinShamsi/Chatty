@@ -9,15 +9,12 @@ export const useAuthStore = defineStore('auth', () => {
         password: string;
     }) {
         try {
-            const { id } = await $fetch<{ id: number }>('/api/auth/login', {
+            await $fetch<{ id: number }>('/api/auth/login', {
                 method: 'POST',
                 body: { username, password },
             });
             return navigateTo({
-                name: 'dashboard-id',
-                params: {
-                    id: id,
-                },
+                name: 'dashboard',
             });
         } catch (error: any) {
             return error?.data?.message || 'Something went wrong';
@@ -34,15 +31,12 @@ export const useAuthStore = defineStore('auth', () => {
         password: string;
     }) {
         try {
-            const { id } = await $fetch<{ id: number }>('/api/auth/register', {
+            await $fetch<{ id: number }>('/api/auth/register', {
                 method: 'POST',
                 body: { fullName, username, password },
             });
             return navigateTo({
-                name: 'dashboard-id',
-                params: {
-                    id: id,
-                },
+                name: 'dashboard',
             });
         } catch (error: any) {
             return error?.data?.message || 'Something went wrong';
