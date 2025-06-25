@@ -35,8 +35,8 @@ export const useAuthStore = defineStore('auth', () => {
                 method: 'POST',
                 body: { fullName, username, password },
             });
-            return navigateTo({
-                name: 'dashboard',
+            await navigateTo({
+                name: 'login',
             });
         } catch (error: any) {
             return error?.data?.message || 'Something went wrong';
