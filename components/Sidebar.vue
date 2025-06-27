@@ -7,7 +7,6 @@ import {
     ArrowRightStartOnRectangleIcon,
 } from '@heroicons/vue/24/outline';
 import type { FunctionalComponent } from 'vue';
-import { useAuthStore } from '~/stores/auth';
 //props
 const props = defineProps<{
     isOpen: boolean;
